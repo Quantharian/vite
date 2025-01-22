@@ -53,10 +53,10 @@ function makeFoo({name, age}) {
         return total / flatValues.length;
     }
 
-    media(2,3,[4,5],6); // 4  
+    console.log(media(2,3,[4,5],6)); // 4  
 
     const media2 = (...values) => {
-        const flatValues = values.flat();
+        const flatValues = values.flat(i);
         const recursive = (total, [first, ...rest]) => {
             if (first === undefined) { 
                 return total / flatValues.length; 
@@ -67,4 +67,12 @@ function makeFoo({name, age}) {
         return total / flatValues.length;
     }
 
-    media ([[2,[3,4],[5],6]])
+    console.log(media2 ([[2,[3,4],[5],6]]))
+
+    const media3 = (...values) => {
+        const flatValues = values.flat(Infinity);
+        const total = flatValues.reduce((a,b) => a+b, 0);
+        return total / flatValues.length;
+    }
+
+     console.log(media3 ([[[2,[3,4]],[5],6]]))
