@@ -17,3 +17,5 @@ magnet:?xt=urn:btih:2AE59AB97B441482F6BE3F7D315EF07A0F6E1C37&dn=EPL_Loba_Negra&t
 magnet:?xt=urn:btih:4F155A57881ECCFDD7DA58A03C63EBCE65D66E77&dn=EPL_Rey_Blanco&tr=udp://tracker.opentrackr.org:1337/announce&tr=udp://www.torrent.eu.org:451/announce&tr=udp://exodus.desync.com:6969/announce&tr=udp://p4p.arenabg.ch:1337/announce&tr=udp://tracker.internetwarriors.net:1337/announce
 
 magnet:?xt=urn:btih:5D33A744EF1FBB0793D095767F2D42958A93A728&dn=EPL_Saltonautas&tr=udp://tracker.opentrackr.org:1337/announce&tr=udp://www.torrent.eu.org:451/announce&tr=udp://exodus.desync.com:6969/announce&tr=udp://p4p.arenabg.ch:1337/announce&tr=udp://tracker.internetwarriors.net:1337/announce
+
+magnet:?xt=urn:btih:336B74A0FE65B539F74DF0269E785C7E6B38333B&dn=EPL_Mickey7&tr=udp://tracker.opentrackr.org:1337/announce&tr=udp://www.torrent.eu.org:451/announce&tr=udp://exodus.desync.com:6969/announce&tr=udp://p4p.arenabg.ch:1337/announce&tr=udp://tracker.internetwarriors.net:1337/announce
