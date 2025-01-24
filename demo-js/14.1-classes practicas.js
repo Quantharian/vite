@@ -7,6 +7,17 @@ class Company {
     }
 }
 
+export class Product {
+    skud;
+    name;
+    unityPrice;
+    constructor(skud, name, unityPrice) {
+        this.skud = skud;
+        this.name = name;
+        this.unityPrice = unityPrice;
+    }
+}
+
 class Invoice {
     static #brand = new Company('A12345678', 'Mi empresa');
     static #lastID = 0;
@@ -23,22 +34,18 @@ class Invoice {
     #id = Invoice.#getID();
     #client;
     #concepto;
-    #conceptos;
     #cantidad;
-    #precioUnitario;
     #iva;
 
-    constructor(client = '', concepto, cantidad, precioUnitario, iva = 1.21) {
+    constructor(client = '', concepto, cantidad, iva = 1.21) {
         this.#concepto = concepto;
-        this.#conceptos = [concepto, precioUnitario, iva]; // añadir conceptos},
         this.#cantidad = cantidad;
-        this.#precioUnitario = precioUnitario;
         this.#iva = iva;
         this.#client = client;
     }
 
     printInvoice() {
-        const total = this.#precioUnitario * this.#cantidad;
+        const total = this.#concepto.unityPrice * this.#cantidad;
         const totalIVA = total * this.#iva;
         const factura = `
         ${Invoice.#brand.name}
@@ -48,7 +55,7 @@ class Invoice {
         Cliente: ${this.#client.name}
         NIF: ${this.#client.nif}
         --------------------------------
-        ${this.#concepto} + ${this.#cantidad} unidades a ${this.#precioUnitario}€.......
+        ${this.#concepto.name} + ${this.#cantidad} unidades a ${this.#concepto.unityPrice}€.......
         Total.........${total}€
         --------------------------------
         Total con IVA........${totalIVA.toFixed(2)}€
@@ -58,9 +65,10 @@ class Invoice {
 }
 
 const client1 = new Company('B12345678', 'Cliente 1');
+const apples = new Product('A123', 'Manzanas', 1.2);
 const client2 = new Company('B87654321', 'Cliente 2');
 const client3 = new Company('B12348765', 'Cliente 3');
-const invoice1 = new Invoice(client1, 'Ordenador', 1, 1000);
+const invoice1 = new Invoice(client1, apples, 1, 1000);
 const invoice2 = new Invoice(client2, 'Movil', 2, 500);
 const invoice3 = new Invoice(client3, 'Brick de leche', 6, 1.2, 1.04);
 const invoice4 = new Invoice(client3, ['Brick de leche', 6, 1.2], 1.04);
