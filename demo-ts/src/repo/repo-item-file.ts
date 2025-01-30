@@ -1,9 +1,13 @@
-import { ORMLite } from './odm-lite';
-import { Repository } from './repository-interface'; // Adjust the import path as necessary
+import { ODMLite } from './odm-lite';
 
 export class RepoItemFile implements Repository<Item> {
-    orm: TypeODM<Item> = new ORMLite<Item>('items.json', 'items');
-    collection = 'items';
+    orm: TypeODM<Item>;
+    collection: string;
+    constructor(file = 'db.json', collection = 'items') {
+        this.orm = new ODMLite<Item>(file);
+        this.collection = collection;
+    }
+
     read() {
         return this.orm.read(this.collection);
     }
@@ -13,7 +17,7 @@ export class RepoItemFile implements Repository<Item> {
     create(data: Omit<Item, 'id'>) {
         return this.orm.create(this.collection, data);
     }
-    update(id: string, data: Partial<Item>) {
+    update(id: string, data: Partial<Omit<Item, 'id'>>) {
         return this.orm.updateByID(this.collection, id, data);
     }
     delete(id: string) {

@@ -220,14 +220,14 @@
             // const allData = JSON.parse(txtData);
             const allData = this.readDB();
             let itemIndex = allData[collection].findIndex(
-                (item: T) => item.id === id
+                (item: T) => item.id === id,
             );
             if (itemIndex === -1) {
                 throw new Error(`Item with id ${id} not found`);
             }
             allData[collection][itemIndex] = Object.assign(
                 allData[collection][itemIndex],
-                data
+                data,
             );
             // allData[collection][itemIndex] = { ...allData[collection][itemIndex], ...data }; // Otra forma de hacerlo
             // writeToDisk(JSON.stringify(allData));
@@ -244,7 +244,7 @@
                 throw new Error(`Item with id ${id} not found`);
             }
             allData[collection] = allData[collection].filter(
-                (item: T) => item.id !== id
+                (item: T) => item.id !== id,
             );
             // writeToDisk(JSON.stringify(allData));
             this.writeDB(allData);
